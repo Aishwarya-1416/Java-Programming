@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+class Basic17 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double hours = sc.nextDouble();
+        double rate = sc.nextDouble();
+        double design = sc.nextDouble();
+        double testing = sc.nextDouble();
+        double advance = sc.nextDouble();
+
+        double cost = (hours * rate) + design + testing - advance;
+        System.out.println(cost);
+    }
+}
