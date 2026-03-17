@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class forloop20 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        double totalDeposits = 0;
+        double totalWithdrawals = 0;
+        double totalTransfers = 0;
+        double totalPayments = 0;
+
+        for(int i = 1; i <= n; i++) {
+
+            String type = sc.next();
+            double amount = sc.nextDouble();
+
+            String category;
+
+            if(type.equals("Deposit")) {
+                category = "Credit";
+                totalDeposits += amount;
+            }
+            else if(type.equals("Withdrawal")) {
+                category = "Debit";
+                totalWithdrawals += amount;
+            }
+            else if(type.equals("Transfer")) {
+                category = "Debit";
+                totalTransfers += amount;
+            }
+            else { 
+                category = "Debit";
+                totalPayments += amount;
+            }
+
+            System.out.println("Transaction " + i + ": " + type);
+            System.out.println("Amount: $" + amount);
+            System.out.println("Category: " + category);
+        }
+
+        double netBalance = totalDeposits - (totalWithdrawals + totalTransfers + totalPayments);
+
+        System.out.println("Total Transactions: " + n);
+        System.out.println("Total Deposits: $" + totalDeposits);
+        System.out.println("Total Withdrawals: $" + totalWithdrawals);
+        System.out.println("Total Transfers: $" + totalTransfers);
+        System.out.println("Total Payments: $" + totalPayments);
+        System.out.println("Net Balance Change: $" + netBalance);
+    }
+}
